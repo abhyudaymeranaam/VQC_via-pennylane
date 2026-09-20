@@ -52,13 +52,28 @@ def cost(weights, bias, X, Y):
     return np.mean((Y - predictions) ** 2)
 
 
-np.random.seed(42)
-X_train = np.random.randn(20, 2)
-Y_train = np.array([1.0 if x[0] > 0 else -1.0 for x in X_train], requires_grad=False)
+from sklearn.datasets import load_iris
+from sklearn.preprocessing import StandardScaler
+
+
+print("Loading real-world Iris data...")
+iris = load_iris()
+
+X_raw = iris.data[:, :2]
+Y_raw = iris.target
+
+X_filtered = X_raw[Y_raw != 2]
+Y_filtered = Y_raw[Y_raw != 2]
+
+Y_train = np.array([1.0 if y == 1 else -1.0 for y in Y_filtered], requires_grad=False)
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_filtered)
+
+print(f"Successfully loaded and scaled {len(X_train)} real data points!")
 
 weights = np.random.randn(3, 2, 3, requires_grad=True)
 bias = np.array(0.0, requires_grad=True)
-
 opt = GradientDescentOptimizer(stepsize=0.1)
 
 print("Starting training...")
