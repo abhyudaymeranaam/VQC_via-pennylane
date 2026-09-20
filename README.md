@@ -1,4 +1,5 @@
-<img width="797" height="678" alt="Quantum Decision Boundary (Graph%20via%20VQC png)" src="https://github.com/user-attachments/assets/de184b57-0f9c-4a2e-bad4-6e56f5431479" />
+<img width="800" height="600" alt="Quantum Decision Boundary (iris_boundary png)" src="https://github.com/user-attachments/assets/953956e5-87b3-410e-86c1-e1826a5788c3" />
+
 # Variational Quantum Classifier (VQC) with PennyLane
 
 This repository contains a from-scratch implementation of a Variational Quantum Classifier built using PennyLane and Python. It demonstrates a hybrid classical-quantum machine learning loop capable of binary classification.
